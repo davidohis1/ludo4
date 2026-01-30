@@ -126,7 +126,7 @@ export class Ludo {
 }
 
     initWebSocket() {
-        this.ws = new WebSocket('ws://localhost:8080');
+        this.ws = new WebSocket('wss://ludo4.onrender.com');
 
         this.ws.onopen = () => {
             console.log('Connected to game server');
