@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Tier - Ludo Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tier-selection.css">
+</head>
+<body>
+    <div class="header">
+        <button class="back-btn" onclick="window.location.href='index.html'">‹</button>
+        <h1>Select Tier</h1>
+        <div class="weekly-badge">Play</div>
+    </div>
+
+    <div class="tiers-container">
+        <!-- Bronze Tier -->
+        <div class="tier-card" data-tier="bronze" data-entry="100" data-prize="500" data-players="4">
+            <div class="tier-content">
+                <div class="tier-icon">
+                    <img src="./asset/bronze.png" alt="Bronze" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="tier-icon-fallback" style="display: none;">🥉</div>
+                </div>
+                <div class="tier-info">
+                    <h3 class="tier-name">Bronze</h3>
+                    <h2 class="tier-entry">Entry: 100 Coins</h2>
+                    <div class="tier-details">
+                        <span>Prize Pool: 500</span>
+                        <span>Players: 4</span>
+                    </div>
+                </div>
+            </div>
+            <button class="join-btn">Join Match</button>
+        </div>
+
+        <!-- Silver Tier -->
+        <div class="tier-card" data-tier="silver" data-entry="500" data-prize="2500" data-players="4">
+            <div class="tier-content">
+                <div class="tier-icon">
+                    <img src="./asset/silver.png" alt="Silver" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="tier-icon-fallback" style="display: none;">🥈</div>
+                </div>
+                <div class="tier-info">
+                    <h3 class="tier-name">Silver</h3>
+                    <h2 class="tier-entry">Entry: 500 Coins</h2>
+                    <div class="tier-details">
+                        <span>Prize Pool: 2,500</span>
+                        <span>Players: 4</span>
+                    </div>
+                </div>
+            </div>
+            <button class="join-btn">Join Match</button>
+        </div>
+
+        <!-- Gold Tier -->
+        <div class="tier-card gold-tier" data-tier="gold" data-entry="1000" data-prize="5000" data-players="4">
+            <div class="tier-content">
+                <div class="tier-icon">
+                    <img src="./asset/gold.png" alt="Gold" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="tier-icon-fallback" style="display: none;">🥇</div>
+                </div>
+                <div class="tier-info">
+                    <h3 class="tier-name">Gold</h3>
+                    <h2 class="tier-entry">Entry: 1,000 Coins</h2>
+                    <div class="tier-details">
+                        <span>Prize Pool: 5,000</span>
+                        <span>Players: 4</span>
+                    </div>
+                </div>
+            </div>
+            <button class="join-btn">Join Match</button>
+        </div>
+    </div>
+
+    <!-- Matchmaking Overlay -->
+    <div id="matchmaking-overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <h2>Finding Players...</h2>
+            <div class="loading-spinner"></div>
+            
+            <div class="players-grid">
+                <div class="player-slot" id="slot-0">
+                    <div class="player-avatar empty">
+                        <span class="waiting-icon">?</span>
+                    </div>
+                    <p class="player-name">Waiting...</p>
+                </div>
+                <div class="player-slot" id="slot-1">
+                    <div class="player-avatar empty">
+                        <span class="waiting-icon">?</span>
+                    </div>
+                    <p class="player-name">Waiting...</p>
+                </div>
+                <div class="player-slot" id="slot-2">
+                    <div class="player-avatar empty">
+                        <span class="waiting-icon">?</span>
+                    </div>
+                    <p class="player-name">Waiting...</p>
+                </div>
+                <div class="player-slot" id="slot-3">
+                    <div class="player-avatar empty">
+                        <span class="waiting-icon">?</span>
+                    </div>
+                    <p class="player-name">Waiting...</p>
+                </div>
+            </div>
+
+            <div class="match-info">
+                <p id="players-count">0/4 Players</p>
+                <p id="countdown-text" class="hidden">Game starting in <span id="countdown">10</span>s</p>
+            </div>
+
+            <button id="cancel-btn" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+    <script src="tier-matchmaking.js" type="module"></script>
+</body>
+</html>
